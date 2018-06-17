@@ -32,27 +32,24 @@ public class BottomNavigationViewHelper {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.navigation_home:
-                        Intent intent1 = new Intent(context, DesktopActivity.class); // ACTIVITY_NUMBER = 0
-                        context.startActivity(intent1);
+                        Intent intent0 = new Intent(context, DesktopActivity.class); // ACTIVITY_NUMBER = 0
+                        context.startActivity(intent0);
                         break;
                     case R.id.navigation_dashboard:
-                        Intent intent2 = new Intent(context, SearchActivity.class); // ACTIVITY_NUMBER = 1
-                        context.startActivity(intent2);
+                        Intent intent1 = new Intent(context, SearchActivity.class); // ACTIVITY_NUMBER = 1
+                        context.startActivity(intent1);
                         break;
                     case R.id.navigation_publish:
-                        Intent intent3 = new Intent(context, ShareActivity.class); // ACTIVITY_NUMBER = 2
-                        context.startActivity(intent3);
+                        Intent intent2 = new Intent(context, ShareActivity.class); // ACTIVITY_NUMBER = 2
+                        context.startActivity(intent2);
                         break;
                     case R.id.navigation_notifications:
-                        Intent intent4 = new Intent(context, LikesActivity.class); // ACTIVITY_NUMBER = 3
-                        context.startActivity(intent4);
+                        Intent intent3 = new Intent(context, LikesActivity.class); // ACTIVITY_NUMBER = 3
+                        context.startActivity(intent3);
                         break;
                     case R.id.navigation_profile:
-                        Intent intent5 = new Intent(context, ProfileActivity.class); // ACTIVITY_NUMBER = 4
-                        context.startActivity(intent5);
-                        break;
-
-                    default:
+                        Intent intent4 = new Intent(context, ProfileActivity.class); // ACTIVITY_NUMBER = 4
+                        context.startActivity(intent4);
                         break;
                 }
                 return false;

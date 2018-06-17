@@ -52,7 +52,7 @@ public class DesktopActivity extends AppCompatActivity {
      */
     private void setupBottomNavigationView() {
         Log.d(TAG, "setupBottomNavigationView: settting up BottomNavigationViewEx");
-        BottomNavigationViewEx navigationEx = (BottomNavigationViewEx) findViewById(R.id.navigation);
+        BottomNavigationViewEx navigationEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavViewBar);
         BottomNavigationViewHelper.setupBottomNavigationView(navigationEx);
         BottomNavigationViewHelper.enableNavigation(mContext, navigationEx);
         Menu menu = navigationEx.getMenu();
