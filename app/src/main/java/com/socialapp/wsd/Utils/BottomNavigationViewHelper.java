@@ -23,7 +23,7 @@ public class BottomNavigationViewHelper {
         bottomNavigationViewEx.enableAnimation(false);
         bottomNavigationViewEx.enableItemShiftingMode(false);
         bottomNavigationViewEx.enableShiftingMode(false);
-        bottomNavigationViewEx.setTextVisibility(false);
+        bottomNavigationViewEx.setTextVisibility(true);
     }
 
     public static void enableNavigation(final Context context, BottomNavigationViewEx view) {
@@ -50,6 +50,9 @@ public class BottomNavigationViewHelper {
                     case R.id.navigation_profile:
                         Intent intent5 = new Intent(context, ProfileActivity.class); // ACTIVITY_NUMBER = 4
                         context.startActivity(intent5);
+                        break;
+
+                    default:
                         break;
                 }
                 return false;
