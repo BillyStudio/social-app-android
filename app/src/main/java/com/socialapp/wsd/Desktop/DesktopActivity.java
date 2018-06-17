@@ -1,28 +1,30 @@
-package com.socialapp.wsd;
+package com.socialapp.wsd.Desktop;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.socialapp.wsd.R;
 import com.socialapp.wsd.Utils.BottomNavigationViewHelper;
 
-public class LikesActivity extends AppCompatActivity {
-    private static final String TAG = "LikesActivity";
-    private static final int ACTIVITY_NUM = 3;
-    private Context mContext = LikesActivity.this;
+public class DesktopActivity extends AppCompatActivity {
+
+    private static final String TAG = "DesktopActivity";
+    private static final int ACTIVITY_NUM = 0;
+    private Context mContext = DesktopActivity.this;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_desktop);
-        Log.d(TAG, "onCreate: Started.");
+        setContentView(R.layout.activity_home);
 
         setupBottomNavigationView();
+
+        Log.d(TAG, "onCreate: starting.");
     }
 
     /*
@@ -37,4 +39,5 @@ public class LikesActivity extends AppCompatActivity {
         MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);
     }
+
 }
