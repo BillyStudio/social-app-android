@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">志同道合</string>
+    <string name="title_home">首页</string>
+    <string name="title_dashboard">兴趣</string>
+    <string name="title_publish">发布</string>
+    <string name="title_notifications">消息</string>
+    <string name="title_profile">我的</string>
+</resources>
