@@ -6,4 +6,7 @@
     <string name="title_notifications">消息</string>
     <string name="title_profile">我的</string>
     <string name="user_name">Shane Wang</string>
+    <string name="user_motto">Stay hungry, stay foolish.</string>
+    <string name="options">登录/注册</string>
+    <string name="acountSettings">账户设置</string>
 </resources>
