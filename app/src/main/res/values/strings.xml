@@ -9,4 +9,6 @@
     <string name="user_motto">Stay hungry, stay foolish.</string>
     <string name="options">登录/注册</string>
     <string name="acountSettings">账户设置</string>
+    <string name="edit_profile">编辑用户</string>
+    <string name="sign_out">退出登录</string>
 </resources>
