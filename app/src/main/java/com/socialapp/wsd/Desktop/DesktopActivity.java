@@ -10,9 +10,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.socialapp.wsd.R;
 import com.socialapp.wsd.Utils.BottomNavigationViewHelper;
 import com.socialapp.wsd.Utils.SectionsPagerAdapter;
+import com.socialapp.wsd.Utils.UniversalImageLoader;
 
 public class DesktopActivity extends AppCompatActivity {
 
@@ -25,8 +27,13 @@ public class DesktopActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Log.d(TAG, "onCreate: starting.");
+
+        initImageLoader();
         setupBottomNavigationView();
         setupViewPager();
+
+
+
     }
 
     /**
@@ -58,6 +65,11 @@ public class DesktopActivity extends AppCompatActivity {
         Menu menu = navigationEx.getMenu();
         MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);
+    }
+
+    private void initImageLoader() {
+        UniversalImageLoader universalImageLoader = new UniversalImageLoader(mContext);
+        ImageLoader.getInstance().init(universalImageLoader.getConfig());
     }
 
 }

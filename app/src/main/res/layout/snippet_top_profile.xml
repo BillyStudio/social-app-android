@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="234"
+            android:text="26"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:textColor="@color/black"
@@ -39,7 +39,7 @@
             android:text="34"
             android:textColor="@color/black"
             app:layout_constraintEnd_toStartOf="@+id/tvFollowing"
-            app:layout_constraintHorizontal_bias="0.482"
+            app:layout_constraintHorizontal_bias="0.500"
             app:layout_constraintStart_toEndOf="@+id/tvPosts"
             app:layout_constraintTop_toTopOf="parent"
             tools:textSize="18sp" />
@@ -50,10 +50,10 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="8dp"
             android:text="Followers"
             app:layout_constraintEnd_toStartOf="@+id/textFollowing"
-            app:layout_constraintHorizontal_bias="0.561"
+            app:layout_constraintHorizontal_bias="0.500"
             app:layout_constraintStart_toEndOf="@+id/textPosts"
             app:layout_constraintTop_toBottomOf="@+id/tvFollowers" />
 
@@ -63,6 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:text="87"
             android:textColor="@color/black"
             android:textSize="18sp"
