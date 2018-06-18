@@ -18,7 +18,8 @@
             android:textColor="@color/black"
             android:background="@drawable/grey_border_bottom"
             />
-        
+
+        <!-- 由AccountSettingsActivity.java手动加入 -->
         <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"

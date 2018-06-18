@@ -29,12 +29,14 @@ public class AccountSettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "onCreate: started.");
+
         setContentView(R.layout.activity_accountsettings);
         mContext = AccountSettingsActivity.this;
-        Log.d(TAG, "onCreate: started.");
+
         mViewPager = (ViewPager) findViewById(R.id.container);
         mRelativeLayout = (RelativeLayout) findViewById(R.id.relLayout1);
-        setupSettingsList();
+        setupSettingsList();    // 完成多个编辑条目的显示和点击的监听
         setupFragments();
 
         // setup the backarrow for navigating back to 'ProfileActivity'
@@ -57,7 +59,7 @@ public class AccountSettingsActivity extends AppCompatActivity {
         options.add(getString(R.string.sign_out_fragment));  // fragment 1
 
         ArrayAdapter adapter = new ArrayAdapter<String>(mContext, android.R.layout.simple_list_item_1, options);
-        listView.setAdapter(adapter);
+        listView.setAdapter(adapter);   // 为当前条目列表配置 ArrayAdapter
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -77,7 +79,7 @@ public class AccountSettingsActivity extends AppCompatActivity {
     private void setViewPager(int fragmentNumber) {
         mRelativeLayout.setVisibility(View.GONE);
         Log.d(TAG, "setupViewPager: Navigating to fragment #: " + fragmentNumber);
-        mViewPager.setAdapter(pagerAdapter);
+        mViewPager.setAdapter(pagerAdapter);    // 为每个具体条目设置 SectionStatePagerAdapter
         mViewPager.setCurrentItem(fragmentNumber);
     }
 }
