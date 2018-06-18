@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.socialapp.wsd.R;
 import com.socialapp.wsd.Utils.BottomNavigationViewHelper;
+import com.socialapp.wsd.Utils.SectionsPagerAdapter;
 
 public class DesktopActivity extends AppCompatActivity {
 
