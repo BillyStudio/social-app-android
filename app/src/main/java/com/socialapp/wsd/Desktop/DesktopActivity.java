@@ -22,6 +22,10 @@ public class DesktopActivity extends AppCompatActivity {
     private static final int ACTIVITY_NUM = 0;
     private Context mContext = DesktopActivity.this;
 
+    // Beego API
+    private boolean mAuth;
+    private boolean mAuthListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +36,16 @@ public class DesktopActivity extends AppCompatActivity {
         setupBottomNavigationView();
         setupViewPager();
 
+
+    }
+
+    /**
+     * Setup the Beego API auth object
+     */
+    private void setupBeegoAuth() {
+        Log.d(TAG, "setupBeegoAuth: setting up Beego auth.");
+
+        mAuth = false;
 
 
     }
