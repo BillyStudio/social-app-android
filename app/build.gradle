@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -19,6 +21,13 @@ android {
 }
 
 dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0-alpha3'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
     // Bottom Navigation View Ex library
     implementation 'com.github.ittianyu:BottomNavigationViewEx:1.2.4'
     implementation 'q.rorbin:badgeview:1.1.0'
@@ -29,15 +38,19 @@ dependencies {
     // Universal Image Loader
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
 
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:28.0.0-alpha3'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
     // Design library for Coordinate layout and toolbars
     implementation 'com.android.support:design:28.0.0-alpha3'
 
+    // firebase
+    implementation 'com.google.firebase:firebase-core:12.0.1'
+    //firebase authentication
+    implementation 'com.google.firebase:firebase-auth:12.0.1'
+    //firebase database
+    implementation 'com.google.firebase:firebase-database:12.0.1'
+    //firebase storage
+    implementation 'com.google.firebase:firebase-storage:12.0.1'
 
 }
+
+// FireBase
+apply plugin: 'com.google.gms.google-services'

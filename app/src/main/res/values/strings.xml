@@ -23,4 +23,9 @@
     <string name="link_signup">没有用户？点击注册</string>
     <string name="loading">正在载入中...</string>
     <string name="register">用户注册</string>
+    <string name="string_next">下一步</string>
+
+    <!-- Firebase database fields -->
+    <string name="dbname_users">users</string>
+    <string name="dbname_user_account_settings">user_account_settings</string>
 </resources>
