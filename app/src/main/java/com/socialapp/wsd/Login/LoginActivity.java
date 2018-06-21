@@ -81,15 +81,17 @@ public class LoginActivity extends AppCompatActivity {
                                 .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                                     @Override
                                     public void onComplete(@NonNull Task<AuthResult> task) {
+                                        Log.d(TAG, "SignInWithEmail:onComplete: " + task.isSuccessful());
+                                        FirebaseUser user = mAuth.getCurrentUser();
+
                                         if (task.isSuccessful()) {
-                                            // Sign in success, update UI with the signed-in user's information
-                                            Log.d(TAG, "signInWithEmail:success");
 
-                                            Toast.makeText(LoginActivity.this, "Authentication success.",
-                                                    Toast.LENGTH_SHORT).show();
-
+                                            Log.d(TAG, "onComplete: success.");
                                             mProgressBar.setVisibility(View.GONE);
                                             mPleaseWait.setVisibility(View.GONE);
+                                            Intent intent = new Intent(LoginActivity.this, DesktopActivity.class);
+                                            startActivity(intent);
+
                                         } else {
                                             // If sign in fails, display a message to the user.
                                             Log.w(TAG, "signInWithEmail:failure", task.getException());
@@ -102,6 +104,8 @@ public class LoginActivity extends AppCompatActivity {
                                         }
                                     }
                                 });
+                    } else {
+                        Log.d(TAG, "onClick: Invalid Email Address!");
                     }
 
 

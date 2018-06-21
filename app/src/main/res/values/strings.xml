@@ -9,10 +9,9 @@
     <string name="user_motto">Stay hungry, stay foolish.</string>
     <string name="options">账号管理</string>
     <string name="acountSettings">设置</string>
-    <string name="edit_profile_fragment">修改个人资料</string>
-    <string name="sign_out_fragment">退出登录</string>
+    <string name="sign_out_comfirm">确定要退出登陆吗</string>
     <string name="change_photo">更换头像</string>
-    <string name="userid_hint">手机号/邮箱</string>
+    <string name="userid_hint">邮箱</string>
     <string name="user_nickname_hint">昵称</string>
     <string name="user_phone_hint">电话号</string>
     <string name="user_email_hint">电子邮箱</string>
@@ -23,9 +22,73 @@
     <string name="link_signup">没有用户？点击注册</string>
     <string name="loading">正在载入中...</string>
     <string name="register">用户注册</string>
-    <string name="string_next">下一步</string>
+
+    <!-- fragment names -->
+    <string name="profile_fragment">Profile</string>
+    <string name="edit_profile_fragment">修改个人资料</string>
+    <string name="view_post_fragment">查看动态</string>
+    <string name="sign_out_fragment">退出登录</string>
 
     <!-- Firebase database fields -->
     <string name="dbname_users">users</string>
     <string name="dbname_user_account_settings">user_account_settings</string>
+    <string name="dbname_user_photos">user_photos</string>
+    <string name="dbname_photos">photos</string>
+
+    <string name="field_username">username</string>
+    <string name="field_motto">motto</string>
+    <string name="field_phone_number">phone_number</string>
+    <string name="field_email">email</string>
+    <string name="field_display_name">display_name</string>
+    <string name="field_website">website</string>
+    <string name="field_description">description</string>
+    <string name="field_user_id">user_id</string>
+    <string name="field_likes">likes</string>
+    <string name="field_caption">caption</string>
+    <string name="field_date_created">date_created</string>
+    <string name="field_photo_id">photo_id</string>
+    <string name="field_tags">tags</string>
+    <string name="field_image_path">image_path</string>
+    <string name="field_comments">comments</string>
+    <string name="field_comment">comment</string>
+    <string name="field_image_uri">image_uri</string>
+    <string name="field_video_uri">video_uri</string>
+    <string name="field_story_id">story_id</string>
+    <string name="field_views">views</string>
+    <string name="field_duration">duration</string>
+    <string name="field_profile_photo">profile_photo</string>
+    <string name="field_timestamp">timestamp</string>
+
+
+    <!-- Intent Extras -->
+    <string name="calling_activity">calling_activity</string>
+    <string name="selected_image">selected_image</string>
+    <string name="selected_bitmap">selected_bitmap</string>
+    <string name="return_to_fragment">return_to_fragment</string>
+    <string name="intent_user">intent_user</string>
+    <string name="user_stories">user_stories</string>
+
+    <!-- Activity names -->
+    <string name="profile_activity">Profile Activity</string>
+
+    <!-- dialog names -->
+    <string name="confirm_password_dialog">ConfirmPaswordDialog</string>
+
+    <!-- strings -->
+    <string name="gallery">GALLERY</string>
+    <string name="photo">PHOTO</string>
+    <string name="string_share">发布</string>
+    <string name="string_open_camera">打开相机</string>
+    <string name="string_next">下一步</string>
+
+    <!-- photo types -->
+    <string name="new_photo">new_photo</string>
+    <string name="profile_photo">profile_photo</string>
+
+    <!-- Bundle arg names -->
+    <string name="user_account_settings">user_account_settings</string>
+    <string name="activity_number">activity_number</string>
+    <string name="bundle_photo">bundle_photo</string>
+    <string name="bundle_user_account_settings">bundle_user_account_settings</string>
+
 </resources>

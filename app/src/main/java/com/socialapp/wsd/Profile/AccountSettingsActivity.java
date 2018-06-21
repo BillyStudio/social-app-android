@@ -1,7 +1,9 @@
 package com.socialapp.wsd.Profile;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +16,16 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.socialapp.wsd.R;
+import com.socialapp.wsd.Utils.FirebaseMethods;
 import com.socialapp.wsd.Utils.SectionsStatePagerAdapter;
 
 
@@ -22,7 +33,8 @@ public class AccountSettingsActivity extends AppCompatActivity {
 
     private static final String TAG = "AccountSettingsActivity";
     private Context mContext;
-    private SectionsStatePagerAdapter pagerAdapter;
+    private static final int ACTIVITY_NUM = 4;
+    public SectionsStatePagerAdapter pagerAdapter;
     private ViewPager mViewPager;
     private RelativeLayout mRelativeLayout;
 
@@ -38,6 +50,7 @@ public class AccountSettingsActivity extends AppCompatActivity {
         mRelativeLayout = (RelativeLayout) findViewById(R.id.relLayout1);
         setupSettingsList();    // 完成多个编辑条目的显示和点击的监听
         setupFragments();
+        getIncomingIntent();
 
         // setup the backarrow for navigating back to 'ProfileActivity'
         ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
@@ -50,6 +63,14 @@ public class AccountSettingsActivity extends AppCompatActivity {
         });
     }
 
+    private void getIncomingIntent() {
+        Intent intent = getIntent();
+
+        if (intent.hasExtra(getString(R.string.calling_activity))) {
+            Log.d(TAG, "getIncomingIntent: Receive incoming intent from " + getString(R.string.profile_activity));
+            setViewPager(pagerAdapter.getFragmentNumber(getString(R.string.edit_profile_fragment)));
+        }
+    }
     private void setupSettingsList() {
         Log.d(TAG, "setupSettingsList: Initializing account settings list.");
         ListView listView = (ListView) findViewById(R.id.lvAccountSettings);
@@ -76,10 +97,12 @@ public class AccountSettingsActivity extends AppCompatActivity {
         pagerAdapter.addFragment(new SignOutFragment(), getString(R.string.sign_out_fragment));  // fragment 1
     }
 
-    private void setViewPager(int fragmentNumber) {
+    public void setViewPager(int fragmentNumber) {
         mRelativeLayout.setVisibility(View.GONE);
         Log.d(TAG, "setupViewPager: Navigating to fragment #: " + fragmentNumber);
         mViewPager.setAdapter(pagerAdapter);    // 为每个具体条目设置 SectionStatePagerAdapter
         mViewPager.setCurrentItem(fragmentNumber);
     }
+
+
 }

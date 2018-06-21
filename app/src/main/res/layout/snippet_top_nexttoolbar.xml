@@ -1,5 +1,5 @@
-<merge
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    >
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -16,25 +16,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="@string/user_name"
-                    android:textSize="20sp"
-                    android:textColor="@color/black"
-                    android:layout_marginStart="10dp"
-                    android:id="@+id/display_name"/>
-                
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_alignParentRight="true"
                     android:layout_marginEnd="20dp"
                     android:layout_centerVertical="true"
-                    android:id="@+id/profileMenu"
-                    android:src="@drawable/ic_ellipses"
+                    android:id="@+id/ivBackArrow"
+                    android:src="@drawable/ic_backarrow"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/string_share"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="15dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/link_blue"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/tvShare"
                     />
+
+
 
 
             </RelativeLayout>
@@ -42,5 +45,8 @@
 
         </android.support.v7.widget.Toolbar>
 
+
+
     </android.support.design.widget.AppBarLayout>
+
 </merge>

@@ -49,7 +49,7 @@ public class DesktopActivity extends AppCompatActivity {
         setupBottomNavigationView();
         setupViewPager();
 
-        mAuth.signOut();    // for test only
+        //mAuth.signOut();    // for test only
 
     }
 

@@ -19,9 +19,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.socialapp.wsd.R;
 import com.socialapp.wsd.Utils.FirebaseMethods;
+import com.socialapp.wsd.models.User;
 
 public class RegisterActivity extends AppCompatActivity {
     private static final String TAG = "RegisterActivity";
@@ -52,7 +54,6 @@ public class RegisterActivity extends AppCompatActivity {
         firebaseMethods = new FirebaseMethods(mContext);
         setupFirebaseAuth();
         init();
-
     }
 
     private void init() {
@@ -96,6 +97,49 @@ public class RegisterActivity extends AppCompatActivity {
     /*
     ----------------------- Firebase ---------------------------------------
      */
+
+    /**
+     * Check is @param username already exists in teh database
+     * @param username
+     */
+    private void checkIfUsernameExists(final String username) {
+        Log.d(TAG, "checkIfUsernameExists: Checking if  " + username + " already exists.");
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        Query query = reference
+                .child(getString(R.string.dbname_users))
+                .orderByChild(getString(R.string.field_username))
+                .equalTo(username);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for(DataSnapshot singleSnapshot: dataSnapshot.getChildren()){
+                    if (singleSnapshot.exists()){
+                        Log.d(TAG, "checkIfUsernameExists: FOUND A MATCH: " + singleSnapshot.getValue(User.class).getUsername());
+                        append = myRef.push().getKey().substring(3,10);
+                        Log.d(TAG, "onDataChange: username already exists. Appending random string to name: " + append);
+                    }
+                }
+
+                String mUsername = "";
+                mUsername = username + append;
+
+                //add new user to the database
+                firebaseMethods.addNewUser(email, mUsername, "", "");
+
+                Toast.makeText(mContext, "Signup successful. Sending verification email.", Toast.LENGTH_SHORT).show();
+
+                mAuth.signOut();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
     /**
      * Setup the Firebase auth object
      */
@@ -118,19 +162,7 @@ public class RegisterActivity extends AppCompatActivity {
                     myRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            // 1st: Make sure the username is not already in use
-                            if (firebaseMethods.checkIfUsernameExists(username, dataSnapshot)) {
-                                append = myRef.push().getKey().substring(3, 10);    // generate random string appending to username
-                                Log.d(TAG, "onDataChange: username already exists. Appending random string to name: " + append);
-                            }
-                            username = username + append;
-
-                            // add new use to the database
-                            firebaseMethods.addNewUser(email, username, username, "");
-                            Toast.makeText(mContext, "Sign up successfully", Toast.LENGTH_SHORT).show();
-
-                            // add new user_account_settings to the database
-
+                            checkIfUsernameExists(username);
                         }
 
                         @Override
@@ -138,6 +170,8 @@ public class RegisterActivity extends AppCompatActivity {
 
                         }
                     });
+
+                    finish();   // successfully registered and back to LoginActivity
 
                 } else {
                     // User is signed out
