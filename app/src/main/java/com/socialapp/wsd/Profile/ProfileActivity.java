@@ -55,7 +55,6 @@ public class ProfileActivity extends AppCompatActivity implements ProfileFragmen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         Log.d(TAG, "onCreate: Started.");
-
         init();
     }
 

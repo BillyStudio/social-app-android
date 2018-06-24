@@ -22,6 +22,7 @@
     <string name="link_signup">没有用户？点击注册</string>
     <string name="loading">正在载入中...</string>
     <string name="register">用户注册</string>
+    <string name="text_phone">照片</string>
 
     <!-- fragment names -->
     <string name="profile_fragment">Profile</string>
