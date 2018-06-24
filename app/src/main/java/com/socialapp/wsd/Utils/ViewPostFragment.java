@@ -558,7 +558,7 @@ public class ViewPostFragment extends Fragment {
     private void setupBottomNavigationView(){
         Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");
         BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationView);
-        BottomNavigationViewHelper.enableNavigation(getActivity() ,bottomNavigationView);
+        BottomNavigationViewHelper.enableNavigation(getActivity(), getActivity(),bottomNavigationView);
         Menu menu = bottomNavigationView.getMenu();
         MenuItem menuItem = menu.getItem(mActivityNumber);
         menuItem.setChecked(true);

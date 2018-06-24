@@ -1,5 +1,6 @@
 package com.socialapp.wsd.Utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -27,7 +28,7 @@ public class BottomNavigationViewHelper {
         */
     }
 
-    public static void enableNavigation(final Context context, BottomNavigationViewEx view) {
+    public static void enableNavigation(final Context context, final Activity callingActivity, BottomNavigationViewEx view) {
         view.setOnNavigationItemSelectedListener(new BottomNavigationViewEx.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -35,22 +36,27 @@ public class BottomNavigationViewHelper {
                     case R.id.navigation_home:
                         Intent intent0 = new Intent(context, DesktopActivity.class); // ACTIVITY_NUMBER = 0
                         context.startActivity(intent0);
+                        callingActivity.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                         break;
                     case R.id.navigation_dashboard:
                         Intent intent1 = new Intent(context, SearchActivity.class); // ACTIVITY_NUMBER = 1
                         context.startActivity(intent1);
+                        callingActivity.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                         break;
                     case R.id.navigation_publish:
                         Intent intent2 = new Intent(context, ShareActivity.class); // ACTIVITY_NUMBER = 2
                         context.startActivity(intent2);
+                        callingActivity.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                         break;
                     case R.id.navigation_notifications:
                         Intent intent3 = new Intent(context, LikesActivity.class); // ACTIVITY_NUMBER = 3
                         context.startActivity(intent3);
+                        callingActivity.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                         break;
                     case R.id.navigation_profile:
                         Intent intent4 = new Intent(context, ProfileActivity.class); // ACTIVITY_NUMBER = 4
                         context.startActivity(intent4);
+                        callingActivity.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                         break;
                 }
                 return false;

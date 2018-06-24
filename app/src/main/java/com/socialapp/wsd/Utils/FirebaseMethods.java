@@ -187,24 +187,6 @@ public class FirebaseMethods {
 
     }
 
-/*    public boolean checkIfUsernameExists(String username, DataSnapshot dataSnapshot) {
-        Log.d(TAG, "checkIfUsernameExists: checking if " + username + " already exists");
-
-        User user = new User();
-        for (DataSnapshot ds: dataSnapshot.child(userID).getChildren()) {
-            Log.d(TAG, "checkIfUsernameExists: datasnapshot " + ds);
-
-            user.setUsername(ds.getValue(User.class).getUsername());
-            Log.d(TAG, "checkIfUsernameExists: username: " + user.getUsername());
-
-            if (StringManipulation.expandUsername(user.getUsername()).equals(username)) {
-                Log.d(TAG, "checkIfUsernameExists: Found a match:" + user.getUsername());
-                return true;
-            }
-        }
-        return false;
-    }*/
-
     private void setProfilePhoto(String url){
         Log.d(TAG, "setProfilePhoto: setting new profile image: " + url);
 

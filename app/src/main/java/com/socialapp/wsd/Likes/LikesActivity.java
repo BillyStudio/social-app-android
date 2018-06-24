@@ -40,7 +40,7 @@ public class LikesActivity extends AppCompatActivity {
         Log.d(TAG, "setupBottomNavigationView: settting up BottomNavigationViewEx");
         BottomNavigationViewEx navigationEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavViewBar);
         BottomNavigationViewHelper.setupBottomNavigationView(navigationEx);
-        BottomNavigationViewHelper.enableNavigation(mContext, navigationEx);
+        BottomNavigationViewHelper.enableNavigation(mContext, this, navigationEx);
         Menu menu = navigationEx.getMenu();
         MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);

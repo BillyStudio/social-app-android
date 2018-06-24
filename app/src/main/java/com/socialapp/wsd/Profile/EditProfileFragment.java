@@ -1,5 +1,6 @@
 package com.socialapp.wsd.Profile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -21,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.socialapp.wsd.R;
+import com.socialapp.wsd.Share.ShareActivity;
 import com.socialapp.wsd.Utils.FirebaseMethods;
 import com.socialapp.wsd.Utils.UniversalImageLoader;
 import com.socialapp.wsd.models.UserAccountSettings;
@@ -135,28 +137,34 @@ public class EditProfileFragment extends Fragment {
 
     private void setProfileWidgets(UserSettings userSettings) {
         Log.d(TAG, "setProfileWidgets: setting widgets with data retrieving from firebase database: " + userSettings.toString());
-        Log.d(TAG, "setProfileWidgets: setting widgets with data retrieving from firebase database: " + userSettings.getSettings().getUsername());
+        Log.d(TAG, "setProfileWidgets: setting widgets with data retrieving from firebase database: " + userSettings.getUser().getEmail());
+        Log.d(TAG, "setProfileWidgets: setting widgets with data retrieving from firebase database: " + userSettings.getUser().getPhone_number());
+
 
         mUserSettings = userSettings;
         //User user = userSettings.getUser();
         UserAccountSettings settings = userSettings.getSettings();
-
         UniversalImageLoader.setImage(settings.getProfile_photo(), mProfilePhoto, null, "");
-
-//        Glide.with(getActivity())
-//                .load(settings.getProfile_photo())
-//                .into(mProfilePhoto);
-
         mDisplayName.setText(settings.getUsername());
         mMotto.setText(settings.getMotto());
         mEmail.setText(userSettings.getUser().getEmail());
         mPhoneNumber.setText(String.valueOf(userSettings.getUser().getPhone_number()));
+
+        mChangeProfilePhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "onClick: changing profile photo");
+                Intent intent = new Intent(getActivity(), ShareActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); //268435456
+                getActivity().startActivity(intent);
+                getActivity().finish();
+            }
+        });
     }
 
     /*
     ------------------------------------ Firebase ---------------------------------------------
      */
-
     /**
      * Setup the firebase auth object
      */
