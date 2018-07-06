@@ -163,7 +163,7 @@ public class ProfileFragment extends Fragment {
                         photo.setDate_created(objectMap.get(getString(R.string.field_date_created)).toString());
                         photo.setImage_path(objectMap.get(getString(R.string.field_image_path)).toString());
 
-                        ArrayList<Comment> comments = new ArrayList<Comment>();
+                        /*ArrayList<Comment> comments = new ArrayList<Comment>();
                         for (DataSnapshot dSnapshot : singleSnapshot
                                 .child(getString(R.string.field_comments)).getChildren()) {
                             Comment comment = new Comment();
@@ -172,17 +172,16 @@ public class ProfileFragment extends Fragment {
                             comment.setDate_created(dSnapshot.getValue(Comment.class).getDate_created());
                             comments.add(comment);
                         }
+                        photo.setComments(comments);*/
 
-                        photo.setComments(comments);
-
-                        List<Like> likesList = new ArrayList<Like>();
+                        /*List<Like> likesList = new ArrayList<Like>();
                         for (DataSnapshot dSnapshot : singleSnapshot
                                 .child(getString(R.string.field_likes)).getChildren()) {
                             Like like = new Like();
                             like.setUser_id(dSnapshot.getValue(Like.class).getUser_id());
                             likesList.add(like);
                         }
-                        photo.setLikes(likesList);
+                        photo.setLikes(likesList);*/
                         photos.add(photo);
                     }catch(NullPointerException e){
                         Log.e(TAG, "onDataChange: NullPointerException: " + e.getMessage() );
@@ -191,7 +190,7 @@ public class ProfileFragment extends Fragment {
 
                 //setup our image grid
                 int gridWidth = getResources().getDisplayMetrics().widthPixels;
-                int imageWidth = gridWidth/NUM_GRID_COLUMNS;
+                int imageWidth = gridWidth / NUM_GRID_COLUMNS;
                 gridView.setColumnWidth(imageWidth);
 
                 ArrayList<String> imgUrls = new ArrayList<String>();
